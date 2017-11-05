@@ -1,4 +1,4 @@
-# Data Structures and Algorithms
+# JavaScript Data Structures and Algorithms
 
 This guide focuses on various algorithms in Computer Science.
 
