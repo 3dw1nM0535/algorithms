@@ -6,13 +6,13 @@ function seqSearch(arr, data) { //sequential algorithm made better
     //Compare item with data to search for in the array and be in parity of 80% - 20%
     if (arr[i] === data && i > (arr.length * 0.2)) {
       //Implement sequential search algorithm with self-organizing data technique
-     swap(arr, i, 0);
-     return true;
+      swap(arr, i, 0);
+      return true;
     } else if (arr[i] == data) {
       return true;
     }
   }
-  
+
   //Exit if data to search for is not found in the array
   return false;
 }
@@ -29,13 +29,13 @@ function dispArray(arr) {
   //loop through the array to see each item or access each item
   for (var i = 0; i < arr.length; i++) {
     //print the item preceding it with space
-    console.log(arr[i] + "" );
+    console.log(arr[i] + "");
     //print new line if element when divided by 10 returns remainder of 9
     if (i % 10 == 9) {
       console.log('\n');
     }
   }
-  
+
   //print new line if element when diveded by 10 returns remainder not equal to 0
   if (i % 10 != 0) {
     console.log('\n');
