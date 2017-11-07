@@ -64,7 +64,7 @@ function swap (arr, index1, index2) {
 }
 
 //class test data
-var numElements = 10;
+var numElements = 100;
 var nums = new Carray(numElements);
 nums.setData();
 console.log('Raw data before sort');
@@ -90,9 +90,18 @@ function bubbleSort() {
 
 }
 
+/*
+//timing algorithm efficiency
+var start = new Date().getTime();
 nums.bubbleSort();
+var stop = new Date().getTime();
+var elapsed = stop - start;
+console.log('Elapsed time for bubble sort algorithm on ' +
+ numElements + ' is ' + elapsed + ' milliseconds!');
+ console.log(' ');
 console.log('Bubble sort output');
 console.log(nums.toString());
+*/
 
 //Selection sort algorithm
 //Selection sort algorithm start at the beginning of
@@ -129,11 +138,18 @@ function selectionSort() {
     //console.log(this.toString());
   }
 }
-
+/*
+//timing selection sort algorithm
+var start = new Date().getTime();
 nums.selectionSort();
+var stop = new Date().getTime();
+var elapsed = stop - start;
+console.log('Elapsed time for selection sort algorithm on ' + 
+numElements + ' is ' + elapsed + ' milliseconds!');
+console.log(' ');
 console.log('Selection sort output');
 console.log(nums.toString());
-
+*/
 //Insertion Sort
 
 //Insertion sort is analogous to way human sort numerical or alphabetical character
@@ -158,8 +174,13 @@ function insertionSort() {
 }
 
 //test data for insertionSort()
+//timing insertion sort algorithm
+var startTime = new Date().getTime();
 nums.insertionSort();
+var stopTime = new Date().getTime();
+var elapsedTime = stopTime - startTime;
+console.log('Elapsed time for insertion sort algorithm on ' + 
+numElements + ' is ' + elapsedTime + ' milliseconds!');
+console.log(' ');
 console.log('Insertion sort output');
 console.log(nums.toString());
-
-
