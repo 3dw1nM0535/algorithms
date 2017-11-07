@@ -70,14 +70,6 @@ function swap (arr, index1, index2) {
   arr[index2] = temp;
 }
 
-//class test data
-var numElements = 10;
-var nums = new Carray(numElements);
-nums.setData();
-console.log('Raw data before sort');
-console.log(nums.toString());
-
-
 //Bubble sort algorithm is one of the slowest but
 //one of the easiest algorithms to implement
 //Data is sorted in ascending order
@@ -268,11 +260,29 @@ console.log(nums.toString());
       
       h = (h-1)/3;
     }
-  } 
+  }
+
+  /**
+   * Test data for sorting algorithms
+   */
+
+   //class test data
+  var numElements = 10000;
+  var nums = new Carray(numElements);
+  nums.setData();
+  console.log('Raw data before sort');
+  console.log(nums.toString());
 
   //Shellsort test run on small dataset
   console.log('\nBefore shellsort \n');
+  var start = new Date().getTime();
   console.log(nums.toString());
+  console.log('\n');
+  var stop = new Date().getTime();
+  var elapsed = stop - start;
+  console.log('Elapsed time for shell sort algorithm on ' + 
+  numElements + ' is ' + elapsed + ' milliseconds!');
+  console.log(' ');
   //console.log('\n During shellsort \n');
   nums.shellSort();
   console.log('\nAfter shellsort \n');
