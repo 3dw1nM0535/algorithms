@@ -1,3 +1,5 @@
+var fs = require('fs');
+
 //Binary search algorithm implementation
 //Set lower bound to be the first position of the array(0)
 //Set the upper bound to be the last element of the array(array.length - 1)
@@ -125,3 +127,28 @@ if (retValue >= 0) {
 } else {
   console.log('Not found!');
 }
+
+console.log('\nString search\n');
+
+//search in text strings
+fs.readFile('word.txt', 'utf8', function (err, data) {
+  if (err) {
+    throw err;
+  }
+
+  var words = data.split(' ');
+  console.log(words);
+
+  var word = 'power';
+  var strArr = quickSort(words);
+  console.log(strArr);
+
+  var retStr = binSearch(strArr, word);
+
+  if (retStr >= -1) {
+    console.log('Found ' + word + ' at position ' + retStr);
+  } else {
+    console.log('Not found!');
+  } 
+
+});
