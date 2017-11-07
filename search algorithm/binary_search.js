@@ -23,17 +23,18 @@ function binSearch(arr, data) {
   while(lowerBound <= upperBound) {
     
     //Find midPoint of the array
-    var midPoint = Math.floor((upperBound - lowerBound) / 2);
+    var midPoint = Math.floor((upperBound + lowerBound) / 2);
+    console.log('Current midpoint: ' + midPoint);
 
     //compare midPoint to the data being searched for in the array of element
     if (arr[midPoint] < data) {
 
       //set lowerBound = midPoint + 1 if midPoint element is less than data being searched for
-      lowerBound = mid + 1;
+      lowerBound = midPoint + 1;
     } else if (arr[midPoint] > data) {
 
       //set upperBound = midPoint - 1 if midPoint element iis greater than data being searched for
-      upperBound = mid - 1;
+      upperBound = midPoint - 1;
     } else {
 
       //else return midPoint as the element
@@ -42,4 +43,57 @@ function binSearch(arr, data) {
   }
 
   return -1;
+}
+
+//display data in the array
+function dispArr(arr) {
+  var retStr = '';
+  for (var i = 0; i < arr.length; i++) {
+    retStr += arr[i] + ' ';
+    if (i > 0 && i % 10 == 0) {
+      retStr += '\n';
+    }
+  }
+
+  return retStr;
+}
+
+
+//quickSort() before conducting search
+function quickSort(arr) {
+
+  if (arr.length == 0) {
+    return [];
+  }
+
+  var lesser = [];
+  var greater = [];
+  var pivot = arr[0];
+
+  for (var i = 1; i < arr.length; i++) {
+    if (arr[i] < pivot) {
+      lesser.push(arr[i]);
+    } else {
+      greater.push(arr[i]);
+    }
+  }
+  return quickSort(lesser).concat(pivot, quickSort(greater));
+}
+
+
+//test data for binary algorithm
+var nums = [];
+for (var i = 0; i < 100; i++) {
+  nums[i] = Math.floor(Math.random() * 101);
+}
+
+var numArr = quickSort(nums);
+console.log(dispArr(numArr));
+var val = 82;
+var retValue = binSearch(numArr, val);
+
+if (retValue >= 0) {
+  console.log('Found!');
+} else {
+  console.log('Not found!');
 }
