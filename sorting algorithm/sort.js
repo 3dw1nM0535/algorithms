@@ -233,23 +233,47 @@ console.log(nums.toString());
   */
 
   //shellSort() definition
-  function shellSort() {
-    for (var g = 0; g < this.gaps.length; g++) {
-      for (var i = this.gaps[g]; i < this.dataStore.length; i++) {
-        var temp = this.dataStore[i];
-        for (var j = i; j >= this.gaps[g] && this.dataStore[j-this.gaps[g]] > temp; j -= this.gaps[g]) {
-          this.dataStore[j] = this.dataStore[j-this.gaps[g]];
-        }
-        this.dataStore[j] = temp;
-      }
-      console.log(this.toString());
+
+
+  /**
+   * ==> Dynamic gap value sequence computing
+   */
+
+   //The code below will compute dynamic sequence value to use in the
+   //shellSort()
+
+   //The value will be injected dynamically before coming out of the loop
+/*
+   var L = this.dataStore.length;
+   var h = 1;
+   while (h < L/3) {
+     h = 3 * h + 1;
+   }
+*/
+
+
+  //shellSort() definition with dynamic gaps sequence value
+  function  shellSort() {
+    var L = this.dataStore.length;
+    var h = 1;
+    while (h < L/3) {
+      h = 3 * h + 1;
     }
-  }
+    while (h >= 1) {
+      for (var i = h; i < L; i++) {
+        for (var j = i; j >= h && this.dataStore[j] < this.dataStore[j-h]; j -= h) {
+          swap(this.dataStore, j, j-h);
+        }
+      }
+      
+      h = (h-1)/3;
+    }
+  } 
 
   //Shellsort test run on small dataset
-  console.log('Before shellsort \n');
+  console.log('\nBefore shellsort \n');
   console.log(nums.toString());
-  console.log('\n During shellsort \n');
+  //console.log('\n During shellsort \n');
   nums.shellSort();
-  console.log('\n After shellsort \n');
+  console.log('\nAfter shellsort \n');
   console.log(nums.toString());
