@@ -80,6 +80,34 @@ function quickSort(arr) {
   return quickSort(lesser).concat(pivot, quickSort(greater));
 }
 
+//count occurrences of found element in the array
+function count(arr, data) {
+  var count = 0;
+  var position = binSearch(arr, data);
+
+  if (position > -1) {
+    count++;
+    
+    for (var i = position-1; i > 0; i--) {
+      if (arr[i] == data) {
+        count++;
+      } else {
+        break;
+      }
+    }
+
+    for (var i = position+1; i < arr.length; i++) {
+      if (arr[i] == data) {
+        count++;
+      } else {
+        break;
+      }
+    }
+  }
+
+  return count;
+}
+
 
 //test data for binary algorithm
 var nums = [];
@@ -90,10 +118,10 @@ for (var i = 0; i < 100; i++) {
 var numArr = quickSort(nums);
 console.log(dispArr(numArr));
 var val = 82;
-var retValue = binSearch(numArr, val);
+var retValue = count(numArr, val);
 
 if (retValue >= 0) {
-  console.log('Found!');
+  console.log('Found ' + retValue + ' occurrences of ' + val);
 } else {
   console.log('Not found!');
 }
