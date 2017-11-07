@@ -16,6 +16,7 @@ function Carray (numElements) {
   this.swap = swap;
   this.bubbleSort = bubbleSort;
   this.selectionSort = selectionSort;
+  this.insertionSort = insertionSort;
 
   for (var i = 0; i < numElements; i++) {
     this.dataStore[i] = i;
@@ -63,9 +64,10 @@ function swap (arr, index1, index2) {
 }
 
 //class test data
-var numElements = 100;
+var numElements = 10;
 var nums = new Carray(numElements);
 nums.setData();
+console.log('Raw data before sort');
 console.log(nums.toString());
 
 
@@ -88,8 +90,9 @@ function bubbleSort() {
 
 }
 
-//nums.bubbleSort();
-//console.log(nums.toString());
+nums.bubbleSort();
+console.log('Bubble sort output');
+console.log(nums.toString());
 
 //Selection sort algorithm
 //Selection sort algorithm start at the beginning of
@@ -110,17 +113,53 @@ function bubbleSort() {
 function selectionSort() {
   //variable to hold minValue and temp
   var minValue, temp;
+  //outer loop of the array
   for (var outer = 0; outer <= this.dataStore.length - 2; outer++) {
     minValue = outer;
+    //inner loop of the array
     for (var inner = outer + 1; inner <= this.dataStore.length - 1; inner++) {
+      //compare inner loop array value to outer loop array value
       if (this.dataStore[inner] < this.dataStore[minValue]) {
+        //assing minValue = inner if true
         minValue = inner;
       }
     }
+    //swap the elements in the array
     swap(this.dataStore, outer, minValue);
     //console.log(this.toString());
   }
 }
 
 nums.selectionSort();
+console.log('Selection sort output');
 console.log(nums.toString());
+
+//Insertion Sort
+
+//Insertion sort is analogous to way human sort numerical or alphabetical character
+//Outer loop moves element by element while inner loop compares
+//element choosen by outer loop to the element next to it in the array
+//If element choosen by outer loop is less than element selected in the inner loop,
+//array elements are shifted over to the right to make room for the inner loop element
+
+function insertionSort() {
+  var inner, temp;
+  //outer loop
+  for (var outer = 1; outer <= this.dataStore.length - 1; outer++) {
+    temp = this.dataStore[outer];
+    inner = outer;
+    //inner loop
+    while (inner > 0 && (this.dataStore[inner - 1] >= temp)) {
+      this.dataStore[inner] = this.dataStore[inner - 1];
+      inner--;
+    }
+    this.dataStore[inner] = temp; 
+  }
+}
+
+//test data for insertionSort()
+nums.insertionSort();
+console.log('Insertion sort output');
+console.log(nums.toString());
+
+
