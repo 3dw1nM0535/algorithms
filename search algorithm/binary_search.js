@@ -24,7 +24,7 @@ function binSearch(arr, data) {
     
     //Find midPoint of the array
     var midPoint = Math.floor((upperBound + lowerBound) / 2);
-    console.log('Current midpoint: ' + midPoint);
+    //console.log('Current midpoint: ' + midPoint);
 
     //compare midPoint to the data being searched for in the array of element
     if (arr[midPoint] < data) {
