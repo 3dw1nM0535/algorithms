@@ -265,9 +265,9 @@ console.log(nums.toString());
   /**
    * Test data for sorting algorithms
    */
-
+/*
    //class test data
-  var numElements = 10000;
+  var numElements = 10;
   var nums = new Carray(numElements);
   nums.setData();
   console.log('Raw data before sort');
@@ -287,3 +287,61 @@ console.log(nums.toString());
   nums.shellSort();
   console.log('\nAfter shellsort \n');
   console.log(nums.toString());
+*/
+  //Quick sort algorithm
+
+  /**
+   * This is the fastest sorting algorithm
+   * works around the concept of divide-conquer that breaks recursively a list
+   * of data into successively smaller sublist consisting of smaller elements
+   * and larger elements.
+   * 
+   */
+
+   /**
+    * Pick a pivot element that divides the list into two sublist 
+    * Reorder the list so tha element that are less then the pivot element 
+    * are place before the pivot value and elements that are greater than
+    * the pivot value are placed after the pivot
+    * Repeat step 1 and 2 on both list with smaller elements and list
+    * larger elements
+    */
+
+    //quickSort() definition
+    function quickSort(arr) {
+
+      if (arr.length == 0) {
+        return [];
+      }
+
+      var lesser = [];
+      var greater = [];
+      var pivot = arr[0];
+
+      for (var i = 1; i < arr.length; i++) {
+        //console.log('Pivot: ' + pivot + ' Current element: ' + arr[i]);
+        if (arr[i] < pivot) {
+          //console.log('Moving ' + arr[i] + ' to the left');
+          lesser.push(arr[i]);
+        } else {
+          //console.log('Moving ' + arr[i] + ' to the right');
+          greater.push(arr[i]);
+        }
+      }
+      
+      return quickSort(lesser).concat(pivot, quickSort(greater));
+    }
+
+    //test bed for quicksort algorithm
+    var a = [];
+    for (var i = 0; i < 10; i++) {
+      a[i] = Math.floor((Math.random() * 1000000)+ 1);
+    }
+    console.log('Raw generated data to be sorted \n');
+    console.log(a);
+    console.log('\nSorted data with quickSort()\n');
+    var start = new Date().getTime();
+    console.log(quickSort(a));
+    var stop = new Date().getTime();
+    var elapsed = stop - start;
+    console.log('Elapsed time with quicksort algorithm is ' + elapsed + ' milliseconds');
