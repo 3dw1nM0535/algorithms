@@ -17,11 +17,18 @@ function Carray (numElements) {
   this.bubbleSort = bubbleSort;
   this.selectionSort = selectionSort;
   this.insertionSort = insertionSort;
+  this.shellSort = shellSort;
+  this.gaps = [5,3,1];
 
   for (var i = 0; i < numElements; i++) {
     this.dataStore[i] = i;
   }
 
+}
+
+//setGaps() function definition to set gaps for shell sort algorithm
+function setGaps(arr) {
+  this.gaps = arr;
 }
 
 //setData() function definition to set data in the array
@@ -64,7 +71,7 @@ function swap (arr, index1, index2) {
 }
 
 //class test data
-var numElements = 100;
+var numElements = 10;
 var nums = new Carray(numElements);
 nums.setData();
 console.log('Raw data before sort');
@@ -172,7 +179,7 @@ function insertionSort() {
     this.dataStore[inner] = temp; 
   }
 }
-
+/*
 //test data for insertionSort()
 //timing insertion sort algorithm
 var startTime = new Date().getTime();
@@ -184,3 +191,65 @@ numElements + ' is ' + elapsedTime + ' milliseconds!');
 console.log(' ');
 console.log('Insertion sort output');
 console.log(nums.toString());
+*/
+/**
+ * NB ==> Insertion sort algorihtm performs
+ *    ==>faster the bubble sort selection sort algorithms
+ * 
+ * NB ==> selection sort algorithm perform faster than bubble sort algorithms
+ * 
+ * NB ==> bubble sort algorithm is the most inefficient sorting algorithm
+ */
+
+
+ //Next up ==> Advanced sorting algorithms
+ /**
+  * Advanced sorting algorithms include
+    Named after its inventor Donald Shell
+
+    ==> Shellsort algorithm
+    ==> Heapsort algorithm
+    ==> Mergesort algorithm
+    ==> Quicksort algorithm
+
+  These algorithms are generally considered the most efficient where large
+  dataset involve millions instead of hundreds and thousands
+
+  Key concept behind Shell sort algorithm is that it compares
+  distant elements first rather than adjacent elements as in 
+  the case in insertion sort algorithm
+
+  Elements that are far out of place can be put into place more efficiently
+  using this scheme rather than comparing adjacent elements
+
+  It works by defining the gap sequence that indicates how far apart the compared elements
+  are when starting the sorting process.
+
+  The gap sequence can be defined dynamically, but for most application you 
+  can predefined the sequence the algorithm will use
+
+  Different sequence produce different results.
+
+  */
+
+  //shellSort() definition
+  function shellSort() {
+    for (var g = 0; g < this.gaps.length; g++) {
+      for (var i = this.gaps[g]; i < this.dataStore.length; i++) {
+        var temp = this.dataStore[i];
+        for (var j = i; j >= this.gaps[g] && this.dataStore[j-this.gaps[g]] > temp; j -= this.gaps[g]) {
+          this.dataStore[j] = this.dataStore[j-this.gaps[g]];
+        }
+        this.dataStore[j] = temp;
+      }
+      console.log(this.toString());
+    }
+  }
+
+  //Shellsort test run on small dataset
+  console.log('Before shellsort \n');
+  console.log(nums.toString());
+  console.log('\n During shellsort \n');
+  nums.shellSort();
+  console.log('\n After shellsort \n');
+  console.log(nums.toString());
