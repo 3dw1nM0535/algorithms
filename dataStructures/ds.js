@@ -205,3 +205,6 @@ searchArray(names, 'Cynthia');
  * map() ==> maps through the array and return a new array based on the specified call back function
  * 
  */
+
+
+ 
