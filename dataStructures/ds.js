@@ -43,7 +43,7 @@ console.log(objects); // ==> displays [ null, 'Joe', 500, true ]
   */
 
   //We can also verify if an object or variable is an array by calling Array.isArray()
-var number = 3
+var number = 3;
 var numbers = [null, 'Joe', 500, true];
 console.log(Array.isArray(number)); //==> displays false
 console.log(Array.isArray(numbers)); //==> displays true
@@ -161,7 +161,7 @@ console.log(array2);
   * An effective way is to use  a function for this task
   */
 
-//Define function to perfomr deep copy
+//Define function to perform deep copy
 function deepCopy(arr1, arr2) {
   for (var i = 0; i < arr1.length; i++) {
     arr2[i] = arr1[i];
@@ -178,3 +178,30 @@ var arr2 = [];
 deepCopy(arr1, arr2);
 console.log(arr2); //==> displays [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 ]
 
+/**
+ * SEARCH FOR VALUE IN AN ARRAY
+ */
+function searchArray(arr, itemToSearch) {
+  var position = arr.indexOf(itemToSearch);
+  if (position > 0) {
+    console.log('Found ' + itemToSearch + ' at position ' + position);
+  } else {
+    console.log(itemToSearch + ' not found in the array');
+  }
+}
+
+var names = ["David", "Cynthia", "Raymond", "Clayton", "Jennifer"];
+
+//Search test
+searchArray(names, 'Cynthia');
+
+/**
+ * Other Array methods include
+ * filter() ==> return an array if they meet certian condition provided
+ * some() ==> return true if some array elements meet certain condition provided
+ * every() ==> return true if all the array elements meet the specified condition
+ * lastIndexOf() ==> return the last index of the element passed in as parameter
+ * forEach() ==> maps through each array element
+ * map() ==> maps through the array and return a new array based on the specified call back function
+ * 
+ */
