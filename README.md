@@ -1,6 +1,6 @@
 # JavaScript Data Structures and Algorithms
 
-This guide focuses on various algorithms in Computer Science.
+This guide focuses on various data structures and algorithms in Computer Science.
 
 Code samples and examples are commented out for illustrations on various code block scope to help even the non-cs to understand what is going on under the hood.
 
