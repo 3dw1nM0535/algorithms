@@ -125,4 +125,59 @@ var base = 8;
 var newNum = mulBase(num, base);
 console.log(num + ' converted to base ' + base + ' is ' + newNum);
 
+/**
+ * SOLVING PALINDROME STRINGS WITH STACK DATA STRUCTURE 
+ */
 
+/**
+ * Palindrome is a string that is spelled the same forward and backwards
+ */
+
+//Define palindrome function
+function isPalindrome (word) {
+  s = new Stack();
+  for (var i = 0; i < word.length; i++) {
+    s.push(word[i]);
+  }
+  var revWord = '';
+  while (s.length() > 0) {
+    revWord += s.pop();
+  }
+
+  if (word === revWord) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+//Test data for palindrome string
+var word = "racecar";
+if (isPalindrome(word)) {
+  console.log(word + ' is a palindrome String');
+} else {
+  console.log(word + ' is not a palindrome String!');
+}
+
+
+/**
+ * SOLVING RECURSION WITH STACK DATA STRUCTURE
+ */
+
+function recursiveFunc(params) {
+  s = new Stack();
+  while (params > 1) {
+    s.push(params);
+    params--;
+  }
+  var product = 1;
+  while(s.length() > 0) {
+    product *= s.pop();
+  }
+
+  return product;
+}
+
+//Test data for factorial recursive call using stack
+var num = 5;
+console.log(recursiveFunc(5));
