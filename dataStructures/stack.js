@@ -167,8 +167,7 @@ if (isPalindrome(word)) {
 function recursiveFunc(params) {
   s = new Stack();
   while (params > 1) {
-    s.push(params);
-    params--;
+    s.push(params--);
   }
   var product = 1;
   while(s.length() > 0) {
