@@ -49,14 +49,15 @@ for (var i = 0; i < 10; i++) {
 }
 
 dispArray(nums);
-var num = 14;
+var num = 4;
+var position = nums.indexOf(num);
 //check if data is found and print the data
 if (seqSearch(nums, num)) {
   console.log(num + " is in the array of data at position " + position);
 } else {
   console.log(num + " is not in the array.");
 }
-
+/*
 //findMin() function finds minimum value in the array
 function findMin(arr) {
   //Algorithm to find min value in the array
@@ -113,3 +114,4 @@ if (seqSearch(nums, val)) {
 } else {
   console.log(val + " is not in the array");
 }
+*/
