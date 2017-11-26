@@ -60,7 +60,7 @@ if (seqSearch(nums, num)) {
 //findMin() function finds minimum value in the array
 function findMin(arr) {
   //Algorithm to find min value in the array
-  var min = arr[0]; //assign first element to use as comparison alogn the loop
+  var min = arr[0]; //assign first element to use as comparison along the loop
   //start looping at the second element
   for (var i = 1; i < arr.length; i++) {
     //compare current element with min variable
