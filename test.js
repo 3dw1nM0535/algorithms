@@ -13,7 +13,7 @@ var votes = ['NASA',
 var occurence = {};
 
 for (var i = 0; i < votes.length; i++) {
-  if (typeof occurence[votes[i]] == 'undefined') {
+  if (typeof occurence[votes[i]] === undefined) {
     occurence[votes[i]] = 1;
   } else {
     occurence[votes[i]]++;
