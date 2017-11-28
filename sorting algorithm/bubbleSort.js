@@ -39,18 +39,6 @@ function setData () {
   }
 }
 
-//clear() method clears the dataStore
-function clear () {
-  for (var i = 0; i < this.dataStore.length; i++) {
-    this.dataStore[i] = 0;
-  }
-}
-
-//insert() inserts data to the dataStore
-function insert (params) {
-  this.dataStore[this.pos++] = params;
-}
-
 //toString() prints all the elements of the dataStore
 function toString () {
   var retString = '';
