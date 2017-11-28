@@ -74,12 +74,12 @@ function swap (arr, index1, index2) {
   arr[index2] = tmp;
 }
 //Test if the class works as expected
-/*
+
 var numElements = 100;
 var myArray = new Sorting(numElements);
 myArray.setData();
 console.log(myArray.toString());
-*/
+
 
 //Basic sorting bubbleSort() algorithm definition
 function bubbleSort () {
@@ -90,17 +90,13 @@ function bubbleSort () {
         swap(this.dataStore, j, j+1);
       }
     }
-    console.log(this.toString()); //To visualize sorting process of the algorithm
+    //console.log(this.toString()); //To visualize sorting process of the algorithm
   }
 }
 
 //Test program for bubbleSort() with array of 1-10
-/*
-numElements = 10;
-myArray = new Sorting(numElements);
-myArray.setData();
-console.log(myArray.toString());
+console.log();
 myArray.bubbleSort();
 console.log(myArray.toString());
-*/
+
 
