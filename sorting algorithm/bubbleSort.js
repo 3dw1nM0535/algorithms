@@ -23,12 +23,9 @@ function Sorting (numElements) {
   this.dataStore = [];
   this.bubbleSort = bubbleSort;
   this.setData = setData;
-  this.insert = insert;
   this.swap = swap;
   this.toString = toString;
   this.numElements = numElements;
-  this.pos = 0;
-  this.clear = clear;
 
   for (var i = 0; i < this.numElements; i++) {
     this.dataStore[i] = i;
