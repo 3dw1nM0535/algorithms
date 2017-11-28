@@ -21,7 +21,7 @@
 
 function Sorting (numElements) {
   this.dataStore = [];
-  //this.bubbleSort = bubbleSort;
+  this.bubbleSort = bubbleSort;
   this.setData = setData;
   this.insert = insert;
   this.swap = swap;
@@ -74,8 +74,33 @@ function swap (arr, index1, index2) {
   arr[index2] = tmp;
 }
 //Test if the class works as expected
+/*
 var numElements = 100;
 var myArray = new Sorting(numElements);
 myArray.setData();
 console.log(myArray.toString());
+*/
+
+//Basic sorting bubbleSort() algorithm definition
+function bubbleSort () {
+  var numElements = this.dataStore.length;
+  for (var i = numElements; i >= 2; i--) {
+    for (var j = 0; j <= i-1 ; j++) {
+      if (this.dataStore[j] > this.dataStore[j+1]) {
+        swap(this.dataStore, j, j+1);
+      }
+    }
+    console.log(this.toString()); //To visualize sorting process of the algorithm
+  }
+}
+
+//Test program for bubbleSort() with array of 1-10
+/*
+numElements = 10;
+myArray = new Sorting(numElements);
+myArray.setData();
+console.log(myArray.toString());
+myArray.bubbleSort();
+console.log(myArray.toString());
+*/
 
