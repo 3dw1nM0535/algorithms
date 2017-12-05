@@ -6,7 +6,7 @@
  * Elements are added onto the stack using push() method
  * Elements are removed off the stack using the pop() method
  * peek() method peep for element at the top of the stack without
- * removing it from the stack 
+ * removing it from the stack
  * clear() removes all element from the stack
  * length property holds the number of element in the stack
  * empty property lets us know if a stack has no elements in it
@@ -126,7 +126,7 @@ var newNum = mulBase(num, base);
 console.log(num + ' converted to base ' + base + ' is ' + newNum);
 
 /**
- * SOLVING PALINDROME STRINGS WITH STACK DATA STRUCTURE 
+ * SOLVING PALINDROME STRINGS WITH STACK DATA STRUCTURE
  */
 
 /**
