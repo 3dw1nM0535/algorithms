@@ -26,7 +26,7 @@ var properties = Object.keys(occurence).map(function (prop) {
   return occurence[prop];
 });
 
-console.log(properties.join(' '));
+console.log(properties);
 console.log(Object.keys(occurence).join(' '));
 
 /*
