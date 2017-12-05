@@ -75,7 +75,7 @@ function insertionSort () {
   }
 }
 
-var numElements = 3;
+var numElements = 100;
 var myArray = new Sort(numElements);
 myArray.setData();
 console.log(myArray.toString());
