@@ -13,7 +13,7 @@ var votes = ['NASA',
 var occurence = {};
 
 for (var i = 0; i < votes.length; i++) {
-  if (typeof occurence[votes[i]] === undefined) {
+  if (typeof occurence[votes[i]] === 'undefined') {
     occurence[votes[i]] = 1;
   } else {
     occurence[votes[i]]++;
@@ -22,10 +22,11 @@ for (var i = 0; i < votes.length; i++) {
 
 //console.log(occurence);
 
-var properties = Object.keys(occurence).map(function (prop) {
-  return occurence[prop];
-});
+var properties = Object.keys(occurence).map(function (property) {
+  return occurence[property];
+})
 
+console.log(occurence);
 console.log(properties);
 console.log(Object.keys(occurence).join(' '));
 
