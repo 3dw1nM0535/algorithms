@@ -6,5 +6,5 @@ function printHello (count) {
   printHello(count-1); //Recursive call to printHello()
 }
 
-printHello(10);
+printHello(100);
 
