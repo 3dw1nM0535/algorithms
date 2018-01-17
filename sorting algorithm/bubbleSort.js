@@ -1,7 +1,7 @@
 /**
  * First of all, Bubble sort algorithm is the first to check out
  * and get familiar to it
- * First we will define the array to use in this sorting algorithm
+ * First we will define the array class to use in this sorting algorithm
  * and upcoming ones which we will discuss later after bubble sort
  * algorithm.
  */

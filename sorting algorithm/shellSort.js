@@ -27,6 +27,7 @@
  */
 
 //Let's start defining the function class for our Shellsort algorithm
+
 function Sort (numElements) {
   this.dataStore = [];
   this.shellSort = shellSort;
@@ -43,11 +44,13 @@ function Sort (numElements) {
 }
 
 //setGaps() method definition
+
 function setGaps (arr) {
   this.gaps = arr;
 }
 
 //setData() method definition
+
 function setData () {
   for (var i = 0; i < this.numElements; i++) {
     this.dataStore[i] = Math.floor(Math.random() * (this.numElements+1));
@@ -55,6 +58,7 @@ function setData () {
 }
 
 //toString() method definition
+
 function toString () {
   var retString = '';
   for (var i = 0; i < this.dataStore.length; i++) {
@@ -68,6 +72,7 @@ function toString () {
 }
 
 //shellSort() method algorithm definition
+
 function shellSort () {
   for (var g = 0; g < this.gaps.length; g++) {
     for (var i = this.gaps[g]; i < this.dataStore.length; i++) {
@@ -83,6 +88,7 @@ function shellSort () {
 }
 
 //Test program data test for Shellsort algorithm
+
 var nums = new Sort(10);
 nums.setData();
 console.log('Before shellsort: \n');
