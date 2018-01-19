@@ -87,3 +87,4 @@ console.log('Dynamic programming elapsed ' + (stop - start) + ' miliseconds');
  var capacity = 16;
  var n = 5;
  console.log(knapsack(capacity, value, size, n));
+ 
