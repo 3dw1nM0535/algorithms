@@ -9,4 +9,3 @@ function printHello (count) {
 }
 
 printHello(100);
-

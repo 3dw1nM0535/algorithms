@@ -9,7 +9,7 @@ var fs = require('fs');
     => Set the midpoint as(upper bound - lower bound / 2)
     => If the midpoint is less than the element being searched for, set new lower bound = midpoint + 1
     => If the midpoint element is greater than the element being searched for, set upper bound = midpoint - 1
-    
+
   */
 
 //Otherwise return the midpoint element as the found element
@@ -23,7 +23,7 @@ function binSearch(arr, data) {
 
   //while lowerBound is less than upperBound
   while(lowerBound <= upperBound) {
-    
+
     //Find midPoint of the array
     var midPoint = Math.floor((upperBound + lowerBound) / 2);
     //console.log('Current midpoint: ' + midPoint);
@@ -89,7 +89,7 @@ function count(arr, data) {
 
   if (position > -1) {
     count++;
-    
+
     for (var i = position-1; i > 0; i--) {
       if (arr[i] == data) {
         count++;
@@ -107,7 +107,7 @@ function count(arr, data) {
     }
   }
 
-  return count;
+  return count; // return count variable
 }
 
 
@@ -149,6 +149,6 @@ fs.readFile('word.txt', 'utf8', function (err, data) {
     console.log('Found ' + word + ' at position ' + retStr);
   } else {
     console.log('Not found!');
-  } 
+  }
 
 });
