@@ -13,7 +13,7 @@ function recursiveFib(n) {
 //dynamic programming using dynamic concept
 function dynFib(n) {
   val = [];
-  
+
   for (var i = 0; i <= n; i++) {
     val[i] = 0;
   }
@@ -46,8 +46,10 @@ function fibIterable(n) {
 
   return result;
 }
+
 /*
-//testing speed and efficiency of dynamic and recursive
+
+// testing speed and efficiency of dynamic and recursive
 var start = new Date().getTime();
 console.log(recursiveFib(30));
 var stop = new Date().getTime();
@@ -56,19 +58,22 @@ var start = new Date().getTime();
 console.log(fibIterable(30));
 var stop = new Date().getTime();
 console.log('Dynamic programming elapsed ' + (stop - start) + ' miliseconds');
+
 */
+
+
 /**
  * Knapsack problem solving using dynamic programming approach
  */
 
- //max() definition
+ // max() definition
  function max(a, b) {
 
    return (a > b) ? a : b;
 
  }
 
- //knapsack() definition
+ // knapsack() definition
  function knapsack (capacity, value, size, n) {
   if (n == 0 || capacity == 0) {
     return 0;
@@ -87,4 +92,3 @@ console.log('Dynamic programming elapsed ' + (stop - start) + ' miliseconds');
  var capacity = 16;
  var n = 5;
  console.log(knapsack(capacity, value, size, n));
- 

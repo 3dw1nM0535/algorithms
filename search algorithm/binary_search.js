@@ -61,7 +61,7 @@ function dispArr(arr) {
 }
 
 
-//quickSort() before conducting search
+//quickSort() the data before conducting search
 function quickSort(arr) {
 
   if (arr.length == 0) {
@@ -82,7 +82,7 @@ function quickSort(arr) {
   return quickSort(lesser).concat(pivot, quickSort(greater));
 }
 
-//count occurrences of found element in the array
+// count() occurrences of element in the array
 function count(arr, data) {
   var count = 0;
   var position = binSearch(arr, data);

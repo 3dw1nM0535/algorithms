@@ -71,6 +71,7 @@ function BST () {
   this.insert = insert;
   this.getMin = getMin;
   this.getMax = getMax;
+  this.find = find;
 }
 
 // insert() method of BST to add new nodes to the tree
@@ -190,3 +191,43 @@ console.log('The minimum value of the BST is: ' + min);
 // console.log('\n');
 var max = nums.getMax();
 console.log('The maximum value of the BST is: ' + max);
+
+/**
+ * SEARCHING IN A BINARY TREE
+ */
+
+/**
+ * Searching in a binary tree requires comparison between data stored in the current
+ * node and the value being searched for.
+ * The comparison will determine if the search travels to the left child node, or to the
+ * right child node if the current node doesn't store the searched-for value.
+ */
+
+// find () method definition
+function find (data) {
+  var current = this.root;
+  while (current.data != data) {
+    if (data < current.data) {
+      current = current.left;
+    } else {
+      current = current.right;
+    }
+    if (current == null) {
+      return null;
+    }
+  }
+
+  return current;
+}
+
+/**
+ * TEST PROGRAM
+ */
+
+var value = 10;
+var found = nums.find(value);
+if (found != null) {
+  console.log('Found ' + found + ' in the BST');
+} else {
+  console.log(value + ' not found in the BST');
+}
