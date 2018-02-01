@@ -56,6 +56,7 @@ function Node (data, left, right) {
   this.left = left;
   this.right = right;
   this.show = show;
+  this.count = 1;
 
   // Displays data stored in a Node
   function show () {
@@ -72,6 +73,8 @@ function BST () {
   this.getMin = getMin;
   this.getMax = getMax;
   this.find = find;
+  this.remove = remove;
+  this.removeNode = removeNode;
 }
 
 // insert() method of BST to add new nodes to the tree
@@ -230,4 +233,84 @@ if (found != null) {
   console.log('Found ' + found + ' in the BST');
 } else {
   console.log(value + ' not found in the BST');
+}
+
+/**
+ * REMOVING A NODE FROM A BST
+ */
+
+/**
+ * Removing a node from a BST is the most complex operation. The complexity of removing a node
+ * depends on which node you want to delete. If you want to delete a node with no children, the
+ * removal is fairly simple.
+ *
+ * If the node has one child either left or right, the removal is a little more complex to accomplish.
+ * The removal of a node with two children is the most complex removal operation to perform.
+ *
+ * To aid in managing removal of a node from a BST, recurisive calls are made.
+ *
+ * The two functions we will define are remove() and removeNode()
+ *
+ * First step is to check if the current node holds the data we are trying to remove. If so, remove
+ * that node. If not, then we compare the data in the current node to the data we are trying to remove.
+ * If the data we are trying to remove is less than the data in the current node, move to the left child
+ * of the current node and compoare the data. If the data we are trying to remove is greater than the 
+ * data in the current node, move to the right child of the current node and compare the data.
+ *
+ * The first case we have to consider is when the node to be removed is a leaf(a node with no children).
+ * Then all we have to is set the link that is pointing to the node of the parent node to null.
+ *
+ * When the node we want to remove has one child, then the link that is pointing to the node to be removed
+ * has to be adjusted to point to the removed node's child node.
+ *
+ * Finally when the node to be removed has two children, the correct solution is to either find the largest
+ * value in the subtree to the left of the removed node, or find the smallest value in the subtree to the
+ * right of the removed node. We will choose to go to the right.
+ *
+ * We need a function that finds the smallest value of a subtree, which we will the use to create a temporary
+ * node containing the smallest value. We copy that value into the position of the node we are replacing, and
+ * we delete the tempoarary node to complete the operation.
+ */
+
+// remove () method definition
+function remove (data) {
+  root = removeNode(this.root, data);
+}
+
+// removeNode () method definition
+
+function removeNode (node, data) {
+  if (node == null) {
+    return null;
+  }
+
+  if (data == node.data) {
+
+    // node has no children
+    if (node.left == null && node.right == null) {
+      return null;
+    }
+
+    // node has no left child
+    if (node.left == null) {
+      return node.right;
+    }
+
+    // node has no right child
+    if (node.right == null) {
+      return node.left;
+    }
+
+    // node has two children
+    var tempNode = getSmallest(node.right);
+    node.data = tempNode.data;
+    node.right = removeNode(node.right, tempNode.data);
+    return node;
+  } else if (data < node.data) {
+    node.left = removeNode(node.left, data);
+    return node;
+  } else {
+    node.right = removeNode(node.right, data);
+    return node;
+  }
 }

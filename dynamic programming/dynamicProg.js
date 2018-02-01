@@ -10,7 +10,7 @@ function recursiveFib(n) {
   }
 }
 
-//dynamic programming using dynamic concept
+//dynamic programming concept using fibonacci
 function dynFib(n) {
   val = [];
 
