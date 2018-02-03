@@ -75,6 +75,7 @@ function BST () {
   this.find = find;
   this.remove = remove;
   this.removeNode = removeNode;
+  this.update = update;
 }
 
 // insert() method of BST to add new nodes to the tree
@@ -314,3 +315,48 @@ function removeNode (node, data) {
     return node;
   }
 }
+
+/**
+ * COUNTING OCCURRENCES
+ */
+
+// Given a set of exam grades, we can write a program that checks to see if the Grades
+// is in the BST, adding the grades to the BST if it is not found, and incrementing the
+// occurrence of it if it is found in the BST.
+// 
+// First we modify the BST object to include a field that keeps track of the number of
+// occurrence of the grade in the BST, and a function for updating the Node so that if we
+// find a grade in the BST, we increment the occurrences field.
+
+// update() method definition
+function update (data) {
+  var grade = this.find(data);
+  grade.count++;
+  return grade;
+}
+
+// functions to generate a set of grades and to display grades
+function generateArr (length) {
+  var arr = [];
+  for (var i = 0; i < length; i++) {
+    arr[i] = Math.floor(Math.random() * 101);
+  }
+
+  return arr;
+}
+
+function prArray (arr) {
+  console.log(arr[0].toString() + ' ');
+  for (var i = 1; i < arr.length; i++) {
+    console.log(arr[i].toString() + ' ');
+    if (i % 10 == 0) {
+      console.log('\n');
+    }
+  }
+}
+
+/**
+ * Test Program
+ */
+
+
