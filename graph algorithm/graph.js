@@ -1,5 +1,5 @@
-              /* Graph algorithms.
-              ===================
+              /* Graph algorithms */
+              ======================
 /**
  * Graph algorithm consist of vertices and edges.
  * Vertex is a point in a graph and edges is a path connecting the vertex
