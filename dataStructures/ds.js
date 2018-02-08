@@ -6,7 +6,7 @@
  * actions search as searching through data and sorting data
  * Also JavaScript provide programmers with array functions that allow programmer
  * to work with arrays using functional programming techniques.
- * 
+ *
  * We will look at all that in a bit
  */
 
@@ -47,7 +47,7 @@ console.log(objects); // ==> displays [ null, 'Joe', 500, true ]
   */
 
   //We can also verify if an object or variable is an array by calling Array.isArray()
-  
+
 var number = 3;
 var numbers = [null, 'Joe', 500, true];
 console.log(Array.isArray(number)); //==> displays false
@@ -57,7 +57,7 @@ console.log(Array.isArray(numbers)); //==> displays true
   /**
    * ACCESSING AND WRITING ARRAY ELEMENT
    */
-//Data is assigned to array elements using the [] operator in an assignment statement 
+//Data is assigned to array elements using the [] operator in an assignment statement
 //For example the following loop assigns value 1 to 50 to an array
 
 var numbers = [];
@@ -73,7 +73,7 @@ console.log(numbers[0] + ' ' + numbers[1] + ' ' + numbers[2] + ' ' + numbers[3])
 
 
     /**
-    * ACCESS ARRAY ELEMENTS SEQUENTIALLY
+    * ACCESS ARRAY ELEMENTS SEQUENTIALLY USING LOOPS
     */
 
 //Ofcourse accessing all array elements sequentially is easier than before
@@ -143,11 +143,11 @@ for (var i = 0; i < words.length; i++) {
  */
 
  /**
-  * SHALLOW COPY  
+  * SHALLOW COPY
   */
 
  //Create array names array1
- 
+
 var array1 = [];
 for (var i = 0; i < 10; i++) {
   array1[i] = i + 1;
@@ -222,8 +222,5 @@ searchArray(names, 'Cynthia');
  * lastIndexOf() ==> return the last index of the element passed in as parameter
  * forEach() ==> maps through each array element
  * map() ==> maps through the array and return a new array based on the specified call back function
- * 
+ *
  */
-
-
- 

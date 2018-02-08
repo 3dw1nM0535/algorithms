@@ -1,7 +1,7 @@
-//Dynamic programming Concepts using fibonacci and
-//greedy algorithm
+// Dynamic programming Concepts using fibonacci and
+// greedy algorithm
 
-//dynamic program with recursive fibonacci
+// dynamic program with recursive fibonacci
 function recursiveFib(n) {
   if (n < 2) {
     return n;
@@ -10,7 +10,7 @@ function recursiveFib(n) {
   }
 }
 
-//dynamic programming concept using fibonacci
+// dynamic programming concept using fibonacci
 function dynFib(n) {
   val = [];
 
@@ -32,7 +32,7 @@ function dynFib(n) {
   }
 }
 
-//fibonacci without using array
+// fibonacci without using array
 function fibIterable(n) {
   var last = 1;
   var nextLast = 1;
