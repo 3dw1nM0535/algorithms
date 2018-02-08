@@ -116,8 +116,10 @@
    */
 
   var g = new Graph(5);
-  g.addEdge(0,1);
+  g.addEdge(0,1); // shows that 0 has edges to vertices 1 and 2
   g.addEdge(0,2);
-  g.addEdge(1,3);
-  g.addEdge(2,4);
+  g.addEdge(1,3); // shows that 1 has edges to vertex 0 and 3: 3 has an edge to vertex 1
+  g.addEdge(2,4); // shows that 2 has edges to vertex 0 and 4: 4 has an edge to vertex 2
   g.showGraph();
+
+  
