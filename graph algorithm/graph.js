@@ -122,4 +122,6 @@
   g.addEdge(2,4); // shows that 2 has edges to vertex 0 and 4: 4 has an edge to vertex 2
   g.showGraph();
 
-  
+/**
+ * SEARCHING A GRAPH
+ */
