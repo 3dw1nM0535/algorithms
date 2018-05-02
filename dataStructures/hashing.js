@@ -14,30 +14,77 @@
 function Hashtable() {
 	var table = [];
 
+	// Helper class for handling collision
+	var ValuePair = function(key, value) {
+		this.key = key;
+		this.value = value;
+		this.toString = function() {
+			return "[" + this.key + " - " + this.value + "]";
+		}
+	};
+
 	// Method hash(private method of the Hashtable class)
 	var hash = function(key) {
-		var hash = 0;
+		var hash = 5381; // Initialize hash with a prime number
 		for (var i = 0; i < key.length; i++) {
-			hash += key.charCodeAt(key[i]); // Sum up the key ASCII
+			hash += hash * 33 + key.charCodeAt(key[i]); // Sum up the key ASCII
 		}
-		return hash % 37;
+		return hash % 1013;
 	};
 
 	// Method for adding item to the Hashtable
 	this.put = function(key, value) {
 		var position = hash(key);
-		console.log(position + " - " + key);
-		table[position] = value;
+		if (table[position] == undefined) {
+			table[position] = new ValuePair(key, value);
+		} else {
+			// To avoid collision
+			let index = ++position;
+			while (table[index] != undefined) {
+				index++; // Avoid collision
+			}
+			table[index] = new ValuePair(key, value);
+		}
 	};
 
 	// Method for retrieving value from the Hashtable
 	this.get = function(key) {
-		return table[hash(key)];
+		let position = hash(key);
+
+		if (table[position] !== undefined) {
+			if (table[position].key === key) {
+				return table[position].value;
+			} else {
+				let index = ++position;
+				while (table[index] === undefined || table[index].key !== key) {
+					index++;
+				}
+				if (table[index].key === key) {
+					return table[index].value;
+				}
+			}
+		}
+		return undefined;
 	};
 
 	// Method for removing element from the Hashtable
 	this.remove = function(key) {
-		table[hash(key)] = undefined;
+		let position = hash(key);
+
+		if (table[position] !== undefined) {
+			if (table[position].key === key) {
+				table[position] = undefined;
+			} else {
+				let index = ++position;
+				while (table[index] === undefined || table[index].key !== key) {
+					index++;
+				}
+				if (table[index].key === key) {
+					table[index] = undefined;
+				}
+			}
+		}
+		return undefined;
 	};
 
 	// Helper method for printing elements of the table
@@ -63,7 +110,10 @@ hash.put("Jack", "weller@gmail.com");
 
 console.log(hash.get("Grandalf"));
 console.log(hash.get("Millicent"));
-console.log(hash.get("Blake"));
+console.log(hash.get("Joe"));
+console.log(hash.get("Jack"));
+hash.remove("Grandalf");
+console.log(hash.get("Grandalf"));
 hash.print();
 
 /**
@@ -72,5 +122,3 @@ hash.print();
  * Techniques for handling collisions are: separate chaining,
  * linear probing, and double chaining.
  */
-
-// Handling collision
