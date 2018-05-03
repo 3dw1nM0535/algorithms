@@ -11,7 +11,7 @@ Every function has a test example data to test its expectation and efficiency.
 Also the Big O running time complexity is illustrated on some sorting and searching algorithm.
 
 ### Data structures discussed
-1. Binary Search Tree
+1. Binary Tree
 2. Queue Data structure
 3. Stack Data structure
 4. Linked List Data Structure
@@ -19,23 +19,14 @@ Also the Big O running time complexity is illustrated on some sorting and search
 
 ### Algorithms discussed
 1. #### Searching Algorithms
-  I) Binary Search algorithm
-
-  II) Sequential Search algorithm
+	-	Seqiential Search algorithm
+	-	Binary Search algorithm
 
 2. #### Sorting Algorithms
-  I) Bubble sort algorithm
-
-  II) Insertion sort algorithm
-
-  III) Quicksort algorithm
-
-  IV) Selection sort algorithm
-
-  V) Shellsort algorithm
 
 3. #### Greedy algorithm
 4. #### Graph algorithm
+5. #### Dynamic programming
 
 ### Big O Notation
 
@@ -50,7 +41,4 @@ A dynamic programming solution starts at the bottom , solving small problems and
 
 A dynamic programming solution builds a table, usually using an array, that holds the results of many subsolution as the problem is broken down. When the algorithm is complete, the solution is found in a distinct spot in the table.
 
-These tutorials does not contain complete concept and knowledge to data structures and algorithms. I advise further research. Make google your home page :laughing:
-
-## Contributing
-Anyone willing to contribute to this tuturials can make an issue or a PR and reach out to me on [Edwin Moses](https://edwin-lomolo.herokuapp.com)
+These tutorials does not contain complete concept and knowledge to data structures and algorithms. I advise further research. Make google your home page :+1:
